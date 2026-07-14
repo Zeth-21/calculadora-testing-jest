@@ -26,7 +26,7 @@ describe('Calculadora Básica', () => {
   // Función resta
   describe('restar()', () => {
     test('5 - 3 debe ser 2', () => {
-      expect(restar(5, 2)).toBe(2);
+      expect(restar(5, 3)).toBe(2);
     });
 
     test('restar números negativos: -5 - (-3) = -2', () => {
