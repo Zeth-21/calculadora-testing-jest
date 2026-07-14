@@ -1,4 +1,4 @@
-name: CI — Tests Unitarios Jest
+name: CI - Tests Unitarios Jest
 
 on:
   push:
@@ -12,38 +12,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Paso 1: descargar el código del repositorio
       - name: Descargar código
         uses: actions/checkout@v4
 
-      # Paso 2: instalar Node.js 20 (el mismo que usas en tu máquina)
       - name: Instalar Node.js 20
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'npm'
 
-      # Paso 3: instalar las dependencias del proyecto
       - name: Instalar dependencias
         run: npm install
 
-      # Paso 4: ejecutar todos los tests de Jest
       - name: Ejecutar tests unitarios
         run: npm test
-# Cada parte del archivo tiene un propósito específico:
-name: CI # nombre del pipeline (aparece en la pestaña Actions)
-on: # cuándo se activa
- push: # al hacer git push
- branches: [ main ] # solo si es a la rama main
- pull_request: # al abrir un Pull Request
- branches: [ main ] # solo si apunta a main
-jobs: # lista de trabajos que se ejecutan
- test: # nombre del trabajo
- runs-on: ubuntu-latest # en qué sistema operativo corre
- steps: # pasos del trabajo, en orden
- - uses: actions/checkout@v4 # descarga el código
- - uses: actions/setup-node@v4 # instala Node.js
- with:
- node-version: 20
- - run: npm install # instala dependencias
- - run: npm test # ejecuta los tests
